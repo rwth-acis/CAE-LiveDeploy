@@ -118,7 +118,7 @@ done
 copyWidgets
 #start http server for widgets
 cd "$WIDGETS_DIR"
-python -m SimpleHTTPServer $HTTP_PORT &> /dev/null &
+python -m SimpleHTTPServer 8087 &> /dev/null &
 
 start_network="java -cp \"lib/*:service/*\" i5.las2peer.tools.L2pNodeLauncher -p 9013 uploadStartupDirectory\(\'etc/startup\'\)"$startCmd" startWebConnector interactive"
 echo $start_network > /build/bin/start_network.sh
