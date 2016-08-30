@@ -17,7 +17,7 @@ ONBUILD RUN apt-get update -yq \
 	# install Java 8
 	&& apt-get update -yq \
 	&& apt-get install -yq oracle-java8-installer wget \
-	&& update-java-alternatives -s java-8-oracle 
+	&& update-java-alternatives -s java-8-oracle
 
 # General update packages
 RUN sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list
@@ -28,7 +28,9 @@ RUN apt-get upgrade -y
 RUN apt-get install -y \
                      wget \
                      unzip \
-                     python
+                     npm \
+		     nodejs \
+		     nodejs-legacy
 
 # Add MySQL configuration
 COPY mysql.cnf /etc/mysql/conf.d/mysql.cnf
@@ -39,7 +41,7 @@ RUN apt-get -yq install mysql-server-5.5 && \
     rm /etc/mysql/conf.d/mysqld_safe_syslog.cnf && \
     if [ ! -f /usr/share/mysql/my-default.cnf ] ; then cp /etc/mysql/conf.d/mysql.cnf /usr/share/mysql/my-default.cnf; fi && \
     mysql_install_db > /dev/null 2>&1
-	     
+
 # Create mount point
 WORKDIR /build
 # Add default appliction structure and deployment script

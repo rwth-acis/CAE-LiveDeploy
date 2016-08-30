@@ -12,7 +12,7 @@ startCmd=""
 addServiceToStartScript () {
     serviceName=$(getProperty "service.name")"".$(getProperty "service.class")"@"$(getProperty "service.version")
     echo "=> Add $serviceName to start script"
-    startCmd+=" startService\(\'"$serviceName"\'\)"	
+    startCmd+=" startService\(\'"$serviceName"\'\)"
 }
 
 getProperty () {
@@ -73,9 +73,9 @@ copyWidgets() {
     echo "=> Copying widgets now.."
     for widget in ./frontendComponent-*;do
         if [ -d "$widget" ]; then
-	    replaceLinks $widget	
+	    replaceLinks $widget
             cp -a "$widget" "$WIDGETS_DIR"
-            echo "=> Copyied widget $widget"
+            echo "=> Copied widget $widget"
         fi
     done
     cd "$dir"
@@ -118,8 +118,8 @@ done
 copyWidgets
 #start http server for widgets
 cd "$WIDGETS_DIR"
-python -m SimpleHTTPServer 8087 &> /dev/null &
-
+npm install http-server -g
+http-server -p 8087 &
 start_network="java -cp \"lib/*:service/*\" i5.las2peer.tools.L2pNodeLauncher -p 9013 uploadStartupDirectory\(\'etc/startup\'\)"$startCmd" startWebConnector interactive"
 echo $start_network > /build/bin/start_network.sh
 chmod +x /build/bin/start_network.sh
