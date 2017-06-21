@@ -11,4 +11,4 @@ Please see the [Jenkins Configuration Wiki Page](https://github.com/rwth-acis/CA
  
 CAE Configuration
 -----------------------
-Please see the [CAE Configuration Wiki Page](https://github.com/rwth-acis/CAE-LiveDeploy/wiki/CAE Configuration) for the configuration for CAE
+Please see the [CAE Configuration Wiki Page](https://github.com/rwth-acis/CAE-LiveDeploy/wiki/CAE-Configuration) for the configuration for CAE
