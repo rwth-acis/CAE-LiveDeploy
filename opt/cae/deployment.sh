@@ -120,7 +120,7 @@ copyWidgets
 cd "$WIDGETS_DIR"
 npm install httpserver -g
 httpserver -p 8087 &
--start_network="java -cp \"lib/*:service/*\" i5.las2peer.tools.L2pNodeLauncher -p 9011 uploadStartupDirectory\(\'etc/startup\'\) --service-directory service"$startCmd" startWebConnector interactive"
+start_network="java -cp \"lib/*:service/*\" i5.las2peer.tools.L2pNodeLauncher -p 9011 uploadStartupDirectory\(\'etc/startup\'\) --service-directory service"$startCmd" startWebConnector interactive"
 echo $start_network > /build/bin/start_network.sh
 chmod +x /build/bin/start_network.sh
 cd /build
