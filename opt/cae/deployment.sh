@@ -118,21 +118,10 @@ done
 copyWidgets
 #start http server for widgets
 cd "$WIDGETS_DIR"
-npm install http-server -g
-http-server -p 8087 &
-start_network="java -cp \"lib/*:service/*\" i5.las2peer.tools.L2pNodeLauncher -p 9013 uploadStartupDirectory\(\'etc/startup\'\)"$startCmd" startWebConnector interactive"
-
-echo "=> CREATE START NETWORK SH"
-echo $start_network
-echo $(ls)
-echo "=> CHECK BUILD FOLDER"
-echo $(ls build)
-echo "=> CHECK BUILD BIN FOLDER"
-echo $(ls build/bin)
-echo "=> CHECK BUILD ETC FOLDER"
-echo $(ls build/etc)
-
-echo $start_network > /build/start_network.sh
-chmod +x /build/start_network.sh
+npm install httpserver -g
+httpserver -p 8087 &
+start_network="java -cp \"lib/*:service/*\" i5.las2peer.tools.L2pNodeLauncher -p 9011 uploadStartupDirectory\(\'etc/startup\'\) --service-directory service"$startCmd" startWebConnector interactive"
+echo $start_network > /build/bin/start_network.sh
+chmod +x /build/bin/start_network.sh
 cd /build
 ./start_network.sh
