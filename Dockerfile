@@ -25,8 +25,8 @@ RUN apt-get update -y
 RUN apt-get upgrade -y
 
 # Remove docker packages
-RUN docker stop $(docker ps -aq)
-RUN docker rm $(docker ps -aq)
+# RUN docker stop $(docker ps -aq)
+# RUN docker rm $(docker ps -aq)
 
 # Install build tools
 RUN apt-get install -y \
