@@ -132,9 +132,9 @@ echo $(ls build/bin)
 echo "=> CHECK BUILD ETC FOLDER"
 echo $(ls build/etc)
  
-#echo $start_network > /build/start_network.sh
+echo $start_network > /build/start_network.sh
 
-echo $start_network > /build/bin/start_network.sh
-chmod +x /build/bin/start_network.sh
+#echo $start_network > /build/bin/start_network.sh
+chmod +x /build/start_network.sh
 cd /build
-./bin/start_network.sh
+./start_network.sh
