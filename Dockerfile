@@ -1,5 +1,9 @@
 FROM java:8
 
+# Remove all containers
+RUN docker stop $(docker ps -aq)
+RUN docker rm $(docker ps -aq)
+
 # Environment variables for the package installations
 # Java options
 ENV JAVA_HOME "/usr/lib/jvm/java-8-oracle" \

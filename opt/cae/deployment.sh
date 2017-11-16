@@ -91,7 +91,7 @@ createDB
 
 
 #fetch and unzip last build artifact from jenkins
-wget $JENKINS_URL/job/TestJob/lastSuccessfulBuild/artifact/*zip*/archive.zip && unzip archive.zip && cd "$ARCHIVE_DIR"
+wget $JENKINS_URL/job/Build-JobCAE/lastSuccessfulBuild/artifact/*zip*/archive.zip && unzip archive.zip && cd "$ARCHIVE_DIR"
 
 for D in ./microservice-*; do
     if [ -d "$D" ]; then
@@ -121,7 +121,18 @@ cd "$WIDGETS_DIR"
 npm install http-server -g
 http-server -p 8087 &
 start_network="java -cp \"lib/*:service/*\" i5.las2peer.tools.L2pNodeLauncher -p 9013 uploadStartupDirectory\(\'etc/startup\'\)"$startCmd" startWebConnector interactive"
-echo $start_network > /build/bin/start_network.sh
-chmod +x /build/bin/start_network.sh
+
+echo "=> CREATE START NETWORK SH"
+echo $start_network
+echo $(ls)
+echo "=> CHECK BUILD FOLDER"
+echo $(ls build)
+echo "=> CHECK BUILD BIN FOLDER"
+echo $(ls build/bin)
+echo "=> CHECK BUILD ETC FOLDER"
+echo $(ls build/etc)
+
+echo $start_network > /build/start_network.sh
+chmod +x /build/start_network.sh
 cd /build
-./bin/start_network.sh
+./start_network.sh
