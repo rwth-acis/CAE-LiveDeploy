@@ -1,6 +1,6 @@
-# CAE-LiveDeploy
+# CAE-LiveDeploy (deprecated)
 
-**The [new CAE wiki](https://github.com/rwth-acis/CAE-Model-Persistence-Service/wiki) will be a central place for all information regarding the CAE, the information of this wiki will be copied to its new home**
+**This repo is discontinued currently and splitted to two separate repo as [CAE-Jenkins](https://github.com/rwth-acis/cae-jenkins) and [CAE-Deployment](https://github.com/rwth-acis/cae-deployment). Further informations can be found their respective repos.**
 
 This repository contains the needed files for the live deployment for CAE applications. Clone it to into a folder
 where you want the Docker image to be built. This path must then be used in the custom shell script of the Docker job (see the corresponding section of the Jenkins Configuration Wiki Page).
